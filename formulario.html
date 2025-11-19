@@ -34,6 +34,26 @@
             }
         </script>
 
+        <script>
+            function rangeDefinido()
+            {
+                $("#percentagemEscolhida").text($("#formControlRange").val());
+
+                if($("#formControlRange").val() < 50){
+                    if($("#percentagemEscolhida").hasClass("alert alert-success"))
+                        $("#percentagemEscolhida").removeClass("alert alert-success");
+                    
+                        $("#percentagemEscolhida").addClass("alert alert-danger");
+                }
+                else{
+                    if($("#percentagemEscolhida").hasClass("alert alert-danger"))
+                        $("#percentagemEscolhida").removeClass("alert alert-danger");
+                    
+                        $("#percentagemEscolhida").addClass("alert alert-success");
+                }
+            }
+        </script>
+
     </head>
     <body>
         <div class ="container-fluid">
@@ -113,6 +133,18 @@
                         <label class="form-check-label" for="radioMasculino">Masculino</label>
                     </div>
                 </div>
+                
+            <div class="row">
+                <div class="form-group col-md-6">
+                    <label for="formControlRange">Com que percentagem recomendaria o Bootstrap a terceiros?</label>
+                    <input type="range" class="form-control-range" id="formControlRange" min="0" max="100" onchange="rangeDefinido()">
+                </div>
+
+                <div class="form-group col-md-6">
+                    <h1 id="percentagemEscolhida"></h1>
+                </div>
+
+            </div>
 
                 <div class="form-group col-md-6">
                     <!-- <button type="reset" class="btn btn-outline-dark">Cancelar</button> -->
@@ -122,8 +154,6 @@
 
             </div>
             
-            
-
             </form>
         </div>
 
